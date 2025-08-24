@@ -1,0 +1,40 @@
+:root{
+  --bg: #0f1115;
+  --surface: #141821;
+  --surface-2: #1b2130;
+  --text: #e6eaf2;
+  --muted: #94a3b8;
+  --primary: #a3bffa; /* neutral cool */
+  --accent: #f8fafc;
+  --outline: #263043;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+*{box-sizing:border-box}
+html,body,#app{height:100%;margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif}
+
+.app-bar{
+  position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;background:linear-gradient(180deg, rgba(20,24,33,0.94), rgba(20,24,33,0.78));
+  border-bottom:1px solid var(--outline);backdrop-filter: blur(10px);z-index:10
+}
+.title{font-weight:600;letter-spacing:0.3px}
+.btn{background:var(--surface-2);border:1px solid var(--outline);color:var(--text);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow);transition:transform .06s ease}
+.btn.small{padding:4px 8px;border-radius:8px}
+.btn:active{transform:translateY(1px)}
+
+.workspace{position:relative;display:grid;grid-template-columns:repeat(auto-fill, minmax(380px, 1fr));gap:16px;padding:16px}
+.status-bar{position:sticky;bottom:0;display:flex;justify-content:space-between;padding:8px 14px;background:rgba(20,24,33,0.9);border-top:1px solid var(--outline);backdrop-filter: blur(10px)}
+
+.card{position:relative;background:radial-gradient(1200px 600px at 0% 0%, rgba(163,191,250,0.06), transparent), var(--surface);border:1px solid var(--outline);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);min-height:260px}
+.card-toolbar{display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid var(--outline);background:linear-gradient(180deg, rgba(27,33,48,0.9), rgba(20,24,33,0.9))}
+.drag-handle{width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg, #2b344b, #1f2637);border:1px solid #36425e}
+.breadcrumbs{display:flex;gap:6px;flex-wrap:wrap}
+.crumb{padding:4px 8px;border-radius:8px;background:var(--surface-2);border:1px dashed var(--outline);outline:none;min-width:24px}
+.canvas{position:relative;display:flex}
+.terminal{flex:1;min-height:220px}
+.side-rail{width:40px;border-left:1px solid var(--outline);display:flex;flex-direction:column;gap:6px;padding:6px;background:linear-gradient(0deg, rgba(27,33,48,0.9), rgba(20,24,33,0.9))}
+.rail-btn{height:32px;border-radius:8px;background:var(--surface-2);border:1px solid var(--outline);color:var(--muted);cursor:pointer}
+
+/* xterm theme */
+.xterm-viewport{border-radius:0 0 16px 16px}
+.xterm{-webkit-font-smoothing:antialiased}

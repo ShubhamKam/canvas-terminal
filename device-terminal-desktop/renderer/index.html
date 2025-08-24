@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas Terminal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.5.0/css/xterm.css" />
+</head>
+<body>
+  <header class="app-bar">
+    <div class="title">Canvas Terminal</div>
+    <div class="actions">
+      <button id="new">New</button>
+      <button id="settings">Settings</button>
+    </div>
+  </header>
+  <main class="workspace">
+    <div id="grid"></div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/xterm@5.5.0/lib/xterm.min.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>

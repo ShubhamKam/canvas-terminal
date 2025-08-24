@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node/Electron
+node_modules/
+*.log
+*.asar
+/dist/
+/out/
+
+# Android/Gradle
+android-terminal/.gradle/
+android-terminal/.idea/
+android-terminal/local.properties
+android-terminal/app/build/
+
+# OS
+.DS_Store
+Thumbs.db

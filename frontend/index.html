@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Canvas Terminal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="app-bar">
+      <div class="title">Canvas Terminal</div>
+      <div class="actions">
+        <button id="new-card" class="btn">New Canvas</button>
+        <button id="settings" class="btn">Settings</button>
+      </div>
+    </header>
+
+    <main class="workspace" id="workspace">
+      <!-- Cards will be added here -->
+    </main>
+
+    <footer class="status-bar" id="status">
+      <div class="left" id="conn">Disconnected</div>
+      <div class="right">
+        <span id="hint">Double-tap to enter, pinch to zoom</span>
+      </div>
+    </footer>
+  </div>
+
+  <template id="card-template">
+    <section class="card" data-id="">
+      <div class="card-toolbar">
+        <div class="drag-handle" title="Drag"></div>
+        <div class="breadcrumbs">
+          <span class="crumb" contenteditable="true">shell</span>
+        </div>
+        <div class="spacer"></div>
+        <button class="btn small split" title="Split">Split</button>
+        <button class="btn small palette" title="Palette">Palette</button>
+        <button class="btn small close" title="Close">✕</button>
+      </div>
+      <div class="canvas">
+        <div class="terminal" tabindex="0"></div>
+        <div class="side-rail">
+          <button class="rail-btn" data-action="notes">📝</button>
+          <button class="rail-btn" data-action="files">📁</button>
+          <button class="rail-btn" data-action="env">⚙️</button>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/xterm@5.5.0/lib/xterm.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/xterm@5.5.0/css/xterm.css" />
+  <script type="module" src="main.js"></script>
+</body>
+</html>

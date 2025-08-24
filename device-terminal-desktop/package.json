@@ -1,0 +1,31 @@
+{
+  "name": "device-terminal-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone cross-platform terminal (desktop) with Material 3 UI",
+  "main": "main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "dependencies": {
+    "node-pty": "0.11.1-beta32",
+    "xterm": "5.5.0"
+  },
+  "devDependencies": {
+    "electron": "30.0.9",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "com.canvas.terminal",
+    "productName": "Canvas Terminal",
+    "files": ["**/*"],
+    "mac": { "category": "public.app-category.developer-tools" },
+    "win": { "target": ["nsis", "zip"], "artifactName": "${productName}-Setup-${version}.${ext}" },
+    "linux": { "category": "Development", "target": ["AppImage", "deb"] }
+  }
+}
