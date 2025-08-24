@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import jackpal.androidterm.emulatorview.EmulatorView
 import jackpal.androidterm.emulatorview.TermSession
 import jackpal.androidterm.emulatorview.UpdateCallback
@@ -74,7 +75,6 @@ fun AndroidTerminal(session: TermSession?, onReady: (EmulatorView) -> Unit) {
             setTextSize(14)
             setUseCookedIME(true)
             setKeepScreenOn(true)
-            setExtFontSize(14)
         }
     }, update = { view ->
         if (session != null && view.session != session) {
