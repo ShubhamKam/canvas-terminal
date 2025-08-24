@@ -52,6 +52,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.core:core-ktx:1.13.1")
 
-    // PTY library (Jackpal Android-Terminal-Emulator via JitPack)
-    implementation("com.github.jackpal:Android-Terminal-Emulator:master-SNAPSHOT")
+    // PTY library via JitPack (multi-module notation)
+    implementation("com.github.jackpal.Android-Terminal-Emulator:emulatorview:master-SNAPSHOT")
 }
