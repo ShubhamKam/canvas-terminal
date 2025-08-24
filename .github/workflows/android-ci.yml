@@ -43,12 +43,23 @@ jobs:
         run: |
           sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1"
 
-      - name: Build Debug APK (Gradle 8.7)
+      - name: Generate Gradle wrapper (8.7)
         uses: gradle/gradle-build-action@v3
         with:
           gradle-version: 8.7
           build-root-directory: android-terminal
-          arguments: assembleDebug --stacktrace -Pandroid.ndkVersion=25.2.9519653 -Pandroid.cmake.version=3.22.1
+          arguments: wrapper
+
+      - name: Build Debug APK with ./gradlew
+        working-directory: android-terminal
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --no-daemon \
+            -Dorg.gradle.caching=false \
+            -Dorg.gradle.jvmargs="-Xmx3g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8" \
+            assembleDebug --stacktrace \
+            -Pandroid.ndkVersion=25.2.9519653 \
+            -Pandroid.cmake.version=3.22.1
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
