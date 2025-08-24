@@ -52,7 +52,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.core:core-ktx:1.13.1")
 
-    // PTY + session libraries via JitPack (multi-module artifacts)
-    implementation("com.github.jackpal:emulatorview:master-SNAPSHOT")
-    implementation("com.github.jackpal:jackpal-androidterm:master-SNAPSHOT")
+    // Vendored PTY + emulator modules for deterministic CI
+    implementation(project(":third_party:emulatorview"))
+    implementation(project(":third_party:term"))
 }

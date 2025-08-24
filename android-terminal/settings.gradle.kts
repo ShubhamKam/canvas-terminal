@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "CanvasTerminalAndroid"
 include(":app")
+include(":third_party:emulatorview")
+include(":third_party:term")
