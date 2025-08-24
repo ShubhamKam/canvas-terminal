@@ -52,14 +52,25 @@ jobs:
 
       - name: Build Debug APK with ./gradlew
         working-directory: android-terminal
+        shell: bash
         run: |
+          set -euxo pipefail
           chmod +x ./gradlew
+          ./gradlew --version
           ./gradlew --no-daemon \
             -Dorg.gradle.caching=false \
             -Dorg.gradle.jvmargs="-Xmx3g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8" \
-            assembleDebug --stacktrace \
+            assembleDebug --stacktrace --info --warning-mode all \
             -Pandroid.ndkVersion=25.2.9519653 \
-            -Pandroid.cmake.version=3.22.1
+            -Pandroid.cmake.version=3.22.1 2>&1 | tee gradle-build.log
+          echo "Gradle build finished"
+
+      - name: Upload Gradle build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-build-log
+          path: android-terminal/gradle-build.log
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
